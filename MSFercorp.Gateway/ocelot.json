@@ -219,6 +219,22 @@
         "AuthenticationProviderKey": "SECURITY-TOKEN",
         "AllowedScopes": []
       }
+    },
+    {
+      "DownstreamPathTemplate": "/api/empresa",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5005
+        }
+      ],
+      "UpstreamPathTemplate": "/api/empresa",
+      "UpstreamHttpMethod": [ "Post", "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "SECURITY-TOKEN",
+        "AllowedScopes": []
+      }
     }
   ],
   "GlobalConfiguration": {

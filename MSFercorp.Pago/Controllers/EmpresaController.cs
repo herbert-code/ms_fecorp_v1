@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MSFercorp.Venta.Models;
-using MSFercorp.Venta.Services;
+using MSFercorp.Pago.Models;
+using MSFercorp.Pago.Services;
 using System.Threading.Tasks;
 
-namespace MSFercorp.Venta.Controllers
+namespace MSFercorp.Pago.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

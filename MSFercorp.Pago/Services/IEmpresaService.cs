@@ -1,8 +1,8 @@
-﻿using MSFercorp.Venta.Models;
+﻿using MSFercorp.Pago.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MSFercorp.Venta.Services
+namespace MSFercorp.Pago.Services
 {
     public interface IEmpresaService
     {

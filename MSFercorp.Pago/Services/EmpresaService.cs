@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MSFercorp.Venta.Models;
-using MSFercorp.Venta.Repositories;
-using Newtonsoft.Json.Linq;
+using MSFercorp.Pago.Models;
+using MSFercorp.Pago.Repositories;
+//using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MSFercorp.Venta.Services
+namespace MSFercorp.Pago.Services
 {
     public class EmpresaService : IEmpresaService
     {
@@ -29,8 +29,10 @@ namespace MSFercorp.Venta.Services
         }
 
         public async Task<IEnumerable<Empresa>> GetAllEmpresas()
-        {
-            return await _context.Empresas.ToListAsync();
+        {            
+            return await _context.Empresas
+               .Include(v => v.Cliente)
+               .ToListAsync();
         }
 
         public async Task<Empresa> GetEmpresa(int id)
