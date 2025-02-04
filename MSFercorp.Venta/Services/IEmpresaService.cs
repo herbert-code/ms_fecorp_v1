@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 
 namespace MSFercorp.Venta.Services
 {
-    public interface ICategoriaService
+    public interface IEmpresaService
     {
-        Task<IEnumerable<Categoria>> GetAllCategorias();
-        Task<Categoria> GetCategoria(int id);
-        Task CreateCategoria(Categoria categoria);
-        Task UpdateCategoria(Categoria categoria);
-        Task DeleteCategoria(int id);
+        Task<IEnumerable<Empresa>> GetAllEmpresas();
+        Task<Empresa> GetEmpresa(int id);
+        Task CreateEmpresa(Empresa empresa);
+        Task UpdateEmpresa(Empresa empresa);
+        Task DeleteEmpresa(int id);
     }
 }

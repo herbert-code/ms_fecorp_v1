@@ -37,6 +37,7 @@ namespace MSFercorp.Pago
               });
             services.AddScoped<IProducto, ProductoService>();
             services.AddScoped<IPagoService, PagoService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -12,6 +12,7 @@ namespace MSFercorp.Venta.Repositories
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Almacen> Almacenes { get; set; }
+        public DbSet<Empresa> Empresa { get; set; }
         public DbSet<ProductoAlmacen> ProductosAlmacenes { get; set; }
         public DbSet<DetalleVenta> DetallesVenta { get; set; }
 
@@ -21,6 +22,7 @@ namespace MSFercorp.Venta.Repositories
             modelBuilder.Entity<Cliente>().ToTable("cliente"); // 🚨 Nombre exacto de la tabla
             modelBuilder.Entity<Models.Venta>().ToTable("ventas");
             modelBuilder.Entity<Categoria>().ToTable("categoria");
+            modelBuilder.Entity<Empresa>().ToTable("empresa");
             modelBuilder.Entity<Producto>().ToTable("producto");
             modelBuilder.Entity<Almacen>().ToTable("almacen");
             modelBuilder.Entity<ProductoAlmacen>().ToTable("producto_almacen");

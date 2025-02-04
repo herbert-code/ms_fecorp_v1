@@ -7,37 +7,37 @@ namespace MSFercorp.Venta.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CategoriaController : Controller
+    public class EmpresaController : Controller
     {
-        private readonly ICategoriaService _categoriaService;
+        private readonly IEmpresaService _empresaService;
 
-        public CategoriaController(ICategoriaService categoriaService) => _categoriaService = categoriaService;
+        public EmpresaController(IEmpresaService empresaService) => _empresaService = empresaService;
 
         [HttpGet]
-        public async Task<IActionResult> GetAll() => Ok(await _categoriaService.GetAllCategorias());
+        public async Task<IActionResult> GetAll() => Ok(await _empresaService.GetAllEmpresas());
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id) => Ok(await _categoriaService.GetCategoria(id));
+        public async Task<IActionResult> Get(int id) => Ok(await _empresaService.GetEmpresa(id));
 
         [HttpPost]
-        public async Task<IActionResult> Create(Categoria categoria)
+        public async Task<IActionResult> Create(Empresa empresa)
         {
-            await _categoriaService.CreateCategoria(categoria);
-            return CreatedAtAction(nameof(Get), new { id = categoria.Id }, categoria);
+            await _empresaService.CreateEmpresa(empresa);
+            return CreatedAtAction(nameof(Get), new { id = empresa.Id }, empresa);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, Categoria categoria)
+        public async Task<IActionResult> Update(int id, Empresa empresa)
         {
-            if (id != categoria.Id) return BadRequest();
-            await _categoriaService.UpdateCategoria(categoria);
+            if (id != empresa.Id) return BadRequest();
+            await _empresaService.UpdateEmpresa(empresa);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _categoriaService.DeleteCategoria(id);
+            await _empresaService.DeleteEmpresa(id);
             return NoContent();
         }
         public IActionResult Index()

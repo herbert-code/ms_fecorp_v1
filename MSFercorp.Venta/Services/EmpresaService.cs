@@ -8,39 +8,39 @@ using System.Threading.Tasks;
 
 namespace MSFercorp.Venta.Services
 {
-    public class CategoriaService : ICategoriaService
+    public class EmpresaService : IEmpresaService
     {
 
         private readonly ContextDatabase _context;
 
-        public CategoriaService(ContextDatabase context) => _context = context;
+        public EmpresaService(ContextDatabase context) => _context = context;
 
-        public async Task CreateCategoria(Categoria categoria)
+        public async Task CreateEmpresa(Empresa empresa)
         {
-            await _context.Categorias.AddAsync(categoria);
+            await _context.Empresas.AddAsync(empresa);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteCategoria(int id)
+        public async Task DeleteEmpresa(int id)
         {
-            var categoria = await _context.Categorias.FindAsync(id);
-            _context.Categorias.Remove(categoria);
+            var empresa = await _context.Empresas.FindAsync(id);
+            _context.Empresas.Remove(empresa);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Categoria>> GetAllCategorias()
+        public async Task<IEnumerable<Empresa>> GetAllEmpresas()
         {
-            return await _context.Categorias.ToListAsync();
+            return await _context.Empresas.ToListAsync();
         }
 
-        public async Task<Categoria> GetCategoria(int id)
+        public async Task<Empresa> GetEmpresa(int id)
         {
-            return await _context.Categorias.FindAsync(id);
+            return await _context.Empresas.FindAsync(id);
         }
 
-        public async Task UpdateCategoria(Categoria categoria)
+        public async Task UpdateEmpresa(Empresa empresa)
         {
-            _context.Entry(categoria).State = EntityState.Modified;
+            _context.Entry(empresa).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
         
