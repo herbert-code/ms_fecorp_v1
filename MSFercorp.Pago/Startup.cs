@@ -38,6 +38,7 @@ namespace MSFercorp.Pago
             services.AddScoped<IProducto, ProductoService>();
             services.AddScoped<IPagoService, PagoService>();
             services.AddScoped<IEmpresaService, EmpresaService>();
+            services.AddScoped<IDetallePagoService, DetallePagoService>();
 
         }
 

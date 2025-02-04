@@ -8,41 +8,41 @@ using System.Threading.Tasks;
 
 namespace MSFercorp.Pago.Services
 {
-    public class EmpresaService : IEmpresaService
+    public class DetallePagoService : IDetallePagoService
     {
 
         private readonly ContextDatabase _context;
 
-        public EmpresaService(ContextDatabase context) => _context = context;
+        public DetallePagoService(ContextDatabase context) => _context = context;
 
-        public async Task CreateEmpresa(Empresa empresa)
+        public async Task CreateDetallePago(DetallePago detallepago)
         {
-            await _context.Empresas.AddAsync(empresa);
+            await _context.DetallePagos.AddAsync(detallepago);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteEmpresa(int id)
+        public async Task DeleteDetallePago(int id)
         {
-            var empresa = await _context.Empresas.FindAsync(id);
-            _context.Empresas.Remove(empresa);
+            var detallepago = await _context.DetallePagos.FindAsync(id);
+            _context.DetallePagos.Remove(detallepago);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Empresa>> GetAllEmpresas()
-        {            
-            return await _context.Empresas
-               .Include(v => v.Cliente)
-               .ToListAsync();
+        public async Task<IEnumerable<DetallePago>> GetAllDetallePagos()
+        {
+            return await _context.DetallePagos
+              .Include(v => v.Pago)              
+              .ToListAsync();
         }
 
-        public async Task<Empresa> GetEmpresa(int id)
+        public async Task<DetallePago> GetDetallePago(int id)
         {
-            return await _context.Empresas.FindAsync(id);
+            return await _context.DetallePagos.FindAsync(id);
         }
 
-        public async Task UpdateEmpresa(Empresa empresa)
+        public async Task UpdateDetallePago(DetallePago detallepago)
         {
-            _context.Entry(empresa).State = EntityState.Modified;
+            _context.Entry(detallepago).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
         

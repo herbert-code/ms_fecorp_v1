@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 
 namespace MSFercorp.Pago.Services
 {
-    public interface IEmpresaService
+    public interface IDetallePagoService
     {
-        Task<IEnumerable<Empresa>> GetAllEmpresas();
-        Task<Empresa> GetEmpresa(int id);
-        Task CreateEmpresa(Empresa empresa);
-        Task UpdateEmpresa(Empresa empresa);
-        Task DeleteEmpresa(int id);
+        Task<IEnumerable<DetallePago>> GetAllDetallePagos();
+        Task<DetallePago> GetDetallePago(int id);
+        Task CreateDetallePago(DetallePago detallepago);
+        Task UpdateDetallePago(DetallePago detallepago);
+        Task DeleteDetallePago(int id);
     }
 }

@@ -14,13 +14,13 @@ namespace MSFercorp.Pago.Repositories
         public DbSet<Models.Pago> Pagos { get; set; }
         public DbSet<DetallePago> DetallePagos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Empresa> Empresas { get; set; }
+        public DbSet<Empresa> Empresas { get; set; }        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Configurar nombres de tablas
             modelBuilder.Entity<Cliente>().ToTable("clientes"); // 🚨 Nombre exacto de la tabla
             modelBuilder.Entity<Models.Pago>().ToTable("pagos");
-            modelBuilder.Entity<DetallePago>().ToTable("detallle_pagos");
+            modelBuilder.Entity<DetallePago>().ToTable("detalle_pagos");
             modelBuilder.Entity<Producto>().ToTable("producto");
             modelBuilder.Entity<Categoria>().ToTable("categorias");
             modelBuilder.Entity<Empresa>().ToTable("empresas");
@@ -29,7 +29,7 @@ namespace MSFercorp.Pago.Repositories
             modelBuilder.Entity<Models.DetallePago>(entity =>
             {
                 // Mapear columnas
-                entity.Property(v => v.Id).HasColumnName("pago_id"); // 🚨 Nombre real en DB
+                entity.Property(v => v.PagoId).HasColumnName("pago_id"); // 🚨 Nombre real en DB
 
                 // Relación con Pago
                 entity.HasOne(v => v.Pago)
