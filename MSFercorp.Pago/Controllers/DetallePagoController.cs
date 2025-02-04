@@ -7,37 +7,37 @@ namespace MSFercorp.Pago.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EmpresaController : Controller
+    public class DetallePagoController : Controller
     {
-        private readonly IEmpresaService _empresaService;
+        private readonly IDetallePagoService _detallepagoService;
 
-        public EmpresaController(IEmpresaService empresaService) => _empresaService = empresaService;
+        public DetallePagoController(IDetallePagoService detallepagoService) => _detallepagoService = detallepagoService;
 
         [HttpGet]
-        public async Task<IActionResult> GetAll() => Ok(await _empresaService.GetAllEmpresas());
+        public async Task<IActionResult> GetAll() => Ok(await _detallepagoService.GetAllDetallePagos());
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id) => Ok(await _empresaService.GetEmpresa(id));
-
+        public async Task<IActionResult> Get(int id) => Ok(await _detallepagoService.GetDetallePago(id));
+       
         [HttpPost]
-        public async Task<IActionResult> Create(Empresa empresa)
+        public async Task<IActionResult> Create(DetallePago detallepago)
         {
-            await _empresaService.CreateEmpresa(empresa);
-            return CreatedAtAction(nameof(Get), new { id = empresa.Id }, empresa);
+            await _detallepagoService.CreateDetallePago(detallepago);
+            return CreatedAtAction(nameof(Get), new { id = detallepago.Id }, detallepago);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, Empresa empresa)
+        public async Task<IActionResult> Update(int id, DetallePago detallepago)
         {
-            if (id != empresa.Id) return BadRequest();
-            await _empresaService.UpdateEmpresa(empresa);
+            if (id != detallepago.Id) return BadRequest();
+            await _detallepagoService.UpdateDetallePago(detallepago);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _empresaService.DeleteEmpresa(id);
+            await _detallepagoService.DeleteDetallePago(id);
             return NoContent();
         }
         public IActionResult Index()
