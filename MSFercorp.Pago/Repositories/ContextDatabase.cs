@@ -11,6 +11,7 @@ namespace MSFercorp.Pago.Repositories
 
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Producto> Producto { get; set; }
+        public DbSet<Models.Pago> Pagos { get; set; }
 
     }
 }

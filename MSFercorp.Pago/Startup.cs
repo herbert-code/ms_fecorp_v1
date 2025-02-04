@@ -35,7 +35,8 @@ namespace MSFercorp.Pago
               {
                   options.UseNpgsql(Configuration["postgres:cn"]);
               });
-            services.AddScoped<IProducto, ProductoService>();  // Aseg�rate de que esta inyecci�n de dependencias sea correcta
+            services.AddScoped<IProducto, ProductoService>();
+            services.AddScoped<IPagoService, PagoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
