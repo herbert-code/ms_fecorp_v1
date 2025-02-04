@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MS.AFORO255.Product.Models;
 
-namespace MS.AFORO255.Product.Repositories
+namespace MS.FERCORP.Pago.Repositories
 {
     public class ContextDatabase : DbContext
     {

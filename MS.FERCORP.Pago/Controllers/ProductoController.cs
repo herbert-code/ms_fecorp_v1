@@ -3,7 +3,7 @@ using MS.AFORO255.Product.Models;
 using MS.AFORO255.Product.Services;
 using System.Threading.Tasks;
 
-namespace MS.AFORO255.Product.Controllers
+namespace MS.FERCORP.Pago.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MS.AFORO255.Product.Services
+namespace MS.FERCORP.Pago.Services
 {
     public class ProductoService : IProducto
     {

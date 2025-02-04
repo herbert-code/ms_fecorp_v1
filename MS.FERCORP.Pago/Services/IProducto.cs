@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MS.AFORO255.Product.Services
+namespace MS.FERCORP.Pago.Services
 {
     public interface IProducto
     {
