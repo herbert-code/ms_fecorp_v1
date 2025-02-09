@@ -1,8 +1,13 @@
 ﻿using Aforo255.Cross.Token.Src;
+using Consul;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MSFercorp.Seguridad.DTOs;
 using MSFercorp.Seguridad.Services;
+
+using System.Linq; // habilita Select en userPermisos.Roles.Select
+using System.Threading.Tasks;
+
 
 namespace MSFercorp.Seguridad.Controllers
 {
@@ -25,6 +30,7 @@ namespace MSFercorp.Seguridad.Controllers
         }
 
         [HttpPost]
+        /*
         public IActionResult Post([FromBody] AuthRequest request)
         {
             if (!_accessService.Validate(request.UserName, request.Password))
@@ -38,6 +44,53 @@ namespace MSFercorp.Seguridad.Controllers
             return Ok();
             //return Ok(new { token =  JwtToken.Create(_jwtOption) });
         }
-        
+        */
+        public async Task<IActionResult> Post([FromBody] AuthRequest request)
+        {
+            // Validamos las credenciales del usuario
+            var usuario = _accessService.Validate(request.UserName, request.Password);
+
+            if (usuario == null)
+            {
+                return Unauthorized();
+            }
+
+            // Obtenemos los permisos del usuario
+            UsuarioDTO userPermisos = await _accessService.GetUsuarioById(usuario.UserId);
+
+            // Generamos el token JWT
+            var token = JwtToken.Create(_jwtOption);
+
+            // Configuramos los headers de respuesta
+            Response.Headers.Add("access-control-expose-headers", "Authorization");
+            Response.Headers.Add("Authorization", token);
+
+            // Estructuramos la respuesta de manera clara
+            var response = new
+            {
+
+                user = new
+                {
+                    userPermisos.UserId,
+                    userPermisos.Fullname,
+                    userPermisos.Username,
+                    Roles = userPermisos.Roles.Select(role => new
+                    {
+                        role.ID_Rol,
+                        role.Nombre_Rol,
+                        Permisos = role.Permisos.Select(permiso => new
+                        {
+                            permiso.ID_Permiso,
+                            permiso.Nombre_Permiso
+                        })
+                    }),
+
+                    token,
+                }
+            };
+
+            return Ok(response);
+            //return Ok(new { token =  JwtToken.Create(_jwtOption) });
+        }
     }
 }

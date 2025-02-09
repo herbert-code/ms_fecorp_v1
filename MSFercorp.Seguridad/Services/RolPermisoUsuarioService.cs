@@ -25,8 +25,6 @@ namespace MSFercorp.Seguridad.Services
                 .Include(rpu => rpu.RolPermiso)
                     .ThenInclude(rp => rp.Permiso)
                 .ToListAsync();
-
-
         }
 
         public async Task<RolPermisoUsuario> GetRolPermisoUsuarioById(int id)

@@ -17,12 +17,22 @@ namespace MSFercorp.Seguridad.Services
 
         public async Task<IEnumerable<Rol>> GetAllRoles()
         {
-            return await _context.Roles.ToListAsync();
+            //return await _context.Roles.ToListAsync();
+            return await _context.Roles.
+                   Include(dv => dv.RolPermisos)
+                       .ThenInclude(c => c.Permiso)
+                   //Include(dv => dv.RolPermisos)
+                   //    .ThenInclude(c => c.Rol)
+                   .ToListAsync();
         }
 
         public async Task<Rol> GetRolById(int id)
         {
-            return await _context.Roles.FindAsync(id);
+            //return await _context.Roles.FindAsync(id);
+            return await _context.Roles.
+                   Include(dv => dv.RolPermisos)
+                       .ThenInclude(c => c.Rol)
+                   .FirstOrDefaultAsync(dv => dv.ID_Rol == id);
         }
 
         public async Task<Rol> CreateRol(Rol rol)

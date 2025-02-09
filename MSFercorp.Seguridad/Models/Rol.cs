@@ -11,8 +11,8 @@ namespace MSFercorp.Seguridad.Models
         [Column("ID_Rol")]
         public int ID_Rol { get; set; }
         public string Nombre_Rol { get; set; }
-        public string Descripción { get; set; }
-        public DateTime Fecha_Creación { get; set; }
+        public string Descripcion { get; set; }
+        public DateTime Fecha_Creacion { get; set; }
         // Relaciones
         public ICollection<RolPermiso> RolPermisos { get; set; }
     }

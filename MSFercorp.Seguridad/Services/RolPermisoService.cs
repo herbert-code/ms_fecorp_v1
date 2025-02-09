@@ -19,8 +19,26 @@ namespace MSFercorp.Seguridad.Services
         {
             return await _context.RolPermisos
                 .Include(rp => rp.Rol)
-                .Include(rp => rp.Permiso)
+                //    .ThenInclude(r => r.Nombre_Rol)
+                //.Include(rp => rp.Permiso)
+                //    .ThenInclude(p => p.Nombre_Permiso)
                 .ToListAsync();
+
+            /*
+             return await _context.DetallesVenta
+                  .Include(dv => dv.Venta)
+                    .ThenInclude(c => c.Cliente)
+                  .Include(dv => dv.ProductoAlmacen)
+                    .ThenInclude(p => p.Producto)
+                        .ThenInclude(c => c.Categoria)
+                  .Include(dv => dv.ProductoAlmacen)
+                    .ThenInclude(a => a.Almacen)
+                  .FirstOrDefaultAsync(dv => dv.Id == id);
+             */
+            /*return await _context.RolPermisos
+                .Include(rp => rp.Rol)
+                .Include(rp => rp.Permiso)
+                .ToListAsync();*/
         }
 
         public async Task<RolPermiso> GetRolPermisoById(int id)
