@@ -10,7 +10,7 @@
   },
   "profiles": {
 
-    "product": {
+    "MSFercorp.Pago": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": false,
