@@ -30,7 +30,20 @@ namespace MSFercorp.Seguridad.Controllers
             var rolpermiso = await _rolPermisoService.GetRolPermisoById(id);
             return rolpermiso == null ? NotFound() : Ok(rolpermiso);
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteRolPermiso(int id)
+        {
+            var rolPermiso = await _rolPermisoService.GetRolPermisoById(id);
 
+            if (rolPermiso == null)
+            {
+                return NotFound(new { message = "RolPermiso no encontrado." });
+            }
+
+            await _rolPermisoService.DeleteRolPermiso(id);
+
+            return Ok(new { message = "Permiso eliminado correctamente." });
+        }
         [HttpPost]
         public async Task<ActionResult<RolPermiso>> CreateRolPermiso(RolPermiso rolpermiso)
         {

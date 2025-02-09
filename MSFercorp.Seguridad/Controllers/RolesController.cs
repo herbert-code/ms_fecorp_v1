@@ -37,7 +37,12 @@ namespace MSFercorp.Seguridad.Controllers
             var createdRol = await _rolService.CreateRol(rol);
             return CreatedAtAction(nameof(GetRol), new { id = createdRol.ID_Rol }, createdRol);
         }
-
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _rolService.DeleteRol(id);
+            return NoContent();
+        }
         public IActionResult Index()
         {
             return View();
