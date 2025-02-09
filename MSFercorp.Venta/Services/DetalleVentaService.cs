@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
 using MSFercorp.Venta.Repositories;
+using System.Linq;
 
 namespace MSFercorp.Venta.Services
 {
@@ -13,18 +14,38 @@ namespace MSFercorp.Venta.Services
 
         public DetalleVentaService(ContextDatabase context) => _context = context;
 
-        public async Task<IEnumerable<DetalleVenta>> GetAllDetalles()
+        public async Task<IEnumerable<DetalleVenta>> GetAllDetalles() 
             => await _context.DetallesVenta
                 .Include(dv => dv.Venta)
                 .Include(dv => dv.ProductoAlmacen)
                 .ToListAsync();
 
-        public async Task<DetalleVenta> GetDetalle(int id)
-            => await _context.DetallesVenta
-                .Include(dv => dv.Venta)
-                .Include(dv => dv.ProductoAlmacen)
-                .FirstOrDefaultAsync(dv => dv.Id == id);
 
+        public async Task<DetalleVenta> GetDetalle(int id)
+        {
+            return await _context.DetallesVenta
+                  .Include(dv => dv.Venta)
+                    .ThenInclude(c => c.Cliente)
+                  .Include(dv => dv.ProductoAlmacen)
+                    .ThenInclude(p => p.Producto)
+                        .ThenInclude(c => c.Categoria)
+                  .Include(dv => dv.ProductoAlmacen)
+                    .ThenInclude(a => a.Almacen)
+                  .FirstOrDefaultAsync(dv => dv.Id == id);
+        }        
+        public async Task<List<DetalleVenta>> GetDetallesPorVenta(int ventaId)
+        {
+            return await _context.DetallesVenta
+                 .Where(dv => dv.VentaId == ventaId)
+                 .Include(dv => dv.Venta)
+                   .ThenInclude(v => v.Cliente)
+                 .Include(dv => dv.ProductoAlmacen)
+                   .ThenInclude(pa => pa.Producto)
+                       .ThenInclude(p => p.Categoria)
+                 .Include(dv => dv.ProductoAlmacen)
+                   .ThenInclude(pa => pa.Almacen)
+                 .ToListAsync();
+        }
         public async Task CreateDetalle(DetalleVenta detalle)
         {
             // Validar existencia de Venta y ProductoAlmacen
@@ -33,6 +54,27 @@ namespace MSFercorp.Venta.Services
 
             if (!await _context.ProductosAlmacenes.AnyAsync(pa => pa.Id == detalle.ProductoAlmacenId))
                 throw new Exception("Producto en almacén no existe");
+
+            DateTime hoy = DateTime.Today;
+
+            var existingProductoAlmacen = await _context.ProductosAlmacenes.FindAsync(detalle.ProductoAlmacenId);
+
+            if (existingProductoAlmacen == null)
+                throw new Exception("El producto en almacén no existe.");
+            /*
+            // Verificar si el producto específico está vencido
+            if (existingProductoAlmacen.FechaVencimiento < hoy)
+                throw new Exception("El producto en almacén está vencido.");*/
+
+            var cantidad = detalle.Cantidad;
+
+            if (existingProductoAlmacen.Stock < cantidad)
+                throw new Exception("Stock insuficiente para realizar la operación.");
+
+            existingProductoAlmacen.Stock -= cantidad;
+
+            await _context.SaveChangesAsync();
+
 
             await _context.DetallesVenta.AddAsync(detalle);
             await _context.SaveChangesAsync();
@@ -50,5 +92,7 @@ namespace MSFercorp.Venta.Services
             _context.DetallesVenta.Remove(detalle);
             await _context.SaveChangesAsync();
         }
+
+        
     }
 }

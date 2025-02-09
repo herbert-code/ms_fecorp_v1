@@ -33,10 +33,10 @@ namespace MSFercorp.Venta.Repositories
                 
 
                 // Relación con Categoría
-                entity.HasOne(v => v.Categoria)
+                entity.HasOne(p => p.Categoria)
                       .WithMany()
-                      .HasForeignKey(v => v.CategoriaId)
-                      .OnDelete(DeleteBehavior.Restrict);
+                      .HasForeignKey(p => p.CategoriaId)
+                      .OnDelete(DeleteBehavior.Cascade); // Restrict
             });
 
             modelBuilder.Entity<Models.Venta>(entity =>

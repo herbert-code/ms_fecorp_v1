@@ -11,5 +11,7 @@ namespace MSFercorp.Venta.Services
         Task CreateDetalle(DetalleVenta detalle);
         Task UpdateDetalle(DetalleVenta detalle);
         Task DeleteDetalle(int id);
+
+        Task<List<DetalleVenta>> GetDetallesPorVenta(int ventaId);
     }
 }

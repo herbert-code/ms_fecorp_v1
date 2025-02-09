@@ -18,7 +18,8 @@ namespace MSFercorp.Venta.Controllers
         public async Task<IActionResult> GetAll() => Ok(await _detalleService.GetAllDetalles());
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id) => Ok(await _detalleService.GetDetalle(id));
+        //public async Task<IActionResult> Get(int id) => Ok(await _detalleService.GetDetalle(id));
+        public async Task<IActionResult> Get(int id) => Ok(await _detalleService.GetDetallesPorVenta(id));
 
         [HttpPost]
         public async Task<IActionResult> Create(DetalleVenta detalle)

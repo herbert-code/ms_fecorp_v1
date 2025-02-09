@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MSFercorp.Venta.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -27,6 +28,15 @@ namespace MSFercorp.Venta.Services
 
         public async Task CreateVenta(Models.Venta venta)
         {
+            //await _context.Ventas.AddAsync(venta);
+            //await _context.SaveChangesAsync();
+            var cliente = await _context.Clientes.FindAsync(venta.ClienteId);
+            if (cliente == null)
+            {
+                throw new ArgumentException("Cliente o Usuario no existen.");
+            }
+            // Asignar las entidades relacionadas
+            venta.Cliente = cliente;
             await _context.Ventas.AddAsync(venta);
             await _context.SaveChangesAsync();
         }
