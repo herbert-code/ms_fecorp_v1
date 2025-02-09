@@ -29,6 +29,22 @@
       }
     },
     {
+      "DownstreamPathTemplate": "/api/usuario/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/usuario/{id}",
+      "UpstreamHttpMethod": [ "Delete", "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "SECURITY-TOKEN",
+        "AllowedScopes": []
+      }
+    },
+    {
       "DownstreamPathTemplate": "/api/roles",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -39,6 +55,22 @@
       ],
       "UpstreamPathTemplate": "/api/roles",
       "UpstreamHttpMethod": [ "Post", "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "SECURITY-TOKEN",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/roles/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/roles/{id}",
+      "UpstreamHttpMethod": [ "Delete", "Get" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "SECURITY-TOKEN",
         "AllowedScopes": []
@@ -71,6 +103,22 @@
       ],
       "UpstreamPathTemplate": "/api/rolpermisos",
       "UpstreamHttpMethod": [ "Post", "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "SECURITY-TOKEN",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/rolpermisos/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/rolpermisos/{id}",
+      "UpstreamHttpMethod": [ "Delete", "Get" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "SECURITY-TOKEN",
         "AllowedScopes": []
