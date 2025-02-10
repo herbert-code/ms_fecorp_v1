@@ -205,22 +205,6 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/api/venta/{id}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5002
-        }
-      ],
-      "UpstreamPathTemplate": "/api/venta/{id}",
-      "UpstreamHttpMethod": [ "Delete", "Get" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "SECURITY-TOKEN",
-        "AllowedScopes": []
-      }
-    },
-    {
       "DownstreamPathTemplate": "/api/detalleventa",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -231,22 +215,6 @@
       ],
       "UpstreamPathTemplate": "/api/detalleventa",
       "UpstreamHttpMethod": [ "Post", "Get" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "SECURITY-TOKEN",
-        "AllowedScopes": []
-      }
-    },
-    {
-      "DownstreamPathTemplate": "/api/detalleventa/{id}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5002
-        }
-      ],
-      "UpstreamPathTemplate": "/api/detalleventa/{id}",
-      "UpstreamHttpMethod": [ "Delete", "Get" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "SECURITY-TOKEN",
         "AllowedScopes": []
