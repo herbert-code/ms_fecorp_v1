@@ -20,10 +20,14 @@ namespace MSFercorp.Gateway
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                    webBuilder.ConfigureAppConfiguration((host, config) =>
                     {
-                        config.AddJsonFile("ocelot.json", optional: false);
+                        //config.AddJsonFile("ocelot.json", optional: false);
+
+                        config.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+                        config.AddJsonFile($"ocelot.{host.HostingEnvironment.EnvironmentName}.json", optional: true);
                     });
+
                     webBuilder.UseStartup<Startup>();
                 });
     }
