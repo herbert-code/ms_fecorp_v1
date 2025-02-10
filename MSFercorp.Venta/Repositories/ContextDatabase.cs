@@ -25,7 +25,7 @@ namespace MSFercorp.Venta.Repositories
             modelBuilder.Entity<Categoria>().ToTable("categoria");
             modelBuilder.Entity<Area>().ToTable("areas");
             modelBuilder.Entity<Producto>().ToTable("producto");
-            modelBuilder.Entity<Servicio>().ToTable("servicio");
+            modelBuilder.Entity<Servicio>().ToTable("servicios");
             modelBuilder.Entity<Almacen>().ToTable("almacen");
             modelBuilder.Entity<ProductoAlmacen>().ToTable("producto_almacen");
             modelBuilder.Entity<DetalleVenta>().ToTable("detalle_venta");
@@ -36,10 +36,34 @@ namespace MSFercorp.Venta.Repositories
                 entity.Property(v => v.CategoriaId).HasColumnName("id_categoria"); // 🚨 Nombre real en DB
                 
 
-                // Relación con Categoría
+                // Relación con Área
                 entity.HasOne(p => p.Categoria)
                       .WithMany()
                       .HasForeignKey(p => p.CategoriaId)
+                      .OnDelete(DeleteBehavior.Cascade); // Restrict
+            });
+
+            modelBuilder.Entity<Area>(entity =>
+            {
+                // Mapear columnas
+                entity.Property(v => v.Id).HasColumnName("id"); // 🚨
+                entity.Property(v => v.Codigo).HasColumnName("codigo"); // 🚨
+                entity.Property(v => v.Nombre).HasColumnName("nombre"); // 🚨
+                
+            });
+
+            modelBuilder.Entity<Servicio>(entity =>
+            {
+                // Mapear columnas
+                entity.Property(v => v.Id).HasColumnName("id"); // 🚨
+                entity.Property(v => v.Descripcion).HasColumnName("descripcion"); // 🚨
+                entity.Property(v => v.Precio).HasColumnName("precio"); // 🚨
+                entity.Property(v => v.AreaId).HasColumnName("area_id"); // 🚨 Nombre real en DB
+
+                // Relación con Área
+                entity.HasOne(p => p.Area)
+                      .WithMany()
+                      .HasForeignKey(p => p.AreaId)
                       .OnDelete(DeleteBehavior.Cascade); // Restrict
             });
 
