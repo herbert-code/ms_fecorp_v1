@@ -1,5 +1,4 @@
 {
-  /*
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/auth",
@@ -303,7 +302,11 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://gateway-service:8080"
+    "BaseUrl": "http://gateway-service:8080",
+    /*"Cors": {
+      "AllowedOrigins": [ "http://localhost:4200" ], // Cambia la URL al origen de tu frontend
+      "AllowedMethods": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ],
+      "AllowedHeaders": [ "*" ]
+    }*/
   }
-  */
 }
