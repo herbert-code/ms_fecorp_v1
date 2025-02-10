@@ -5,7 +5,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "gateway-service",
+          "Host": "35.226.37.189",
           "Port": 8080
         }
       ],
@@ -17,8 +17,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "seguridad-service",
-          "Port": 8080
+          "Host": "35.226.37.189",
+          "Port": 5001
         }
       ],
       "UpstreamPathTemplate": "/api/token",
@@ -29,8 +29,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "seguridad-service",
-          "Port": 8080
+          "Host": "35.226.37.189",
+          "Port": 5001
         }
       ],
       "UpstreamPathTemplate": "/api/usuario",
