@@ -45,7 +45,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "seguridad-service",
           "Port": 5001
         }
       ],
@@ -61,7 +61,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "seguridad-service",
           "Port": 5001
         }
       ],
@@ -77,7 +77,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "seguridad-service",
           "Port": 5001
         }
       ],
@@ -93,7 +93,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "seguridad-service",
           "Port": 5001
         }
       ],
@@ -109,7 +109,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "seguridad-service",
           "Port": 5001
         }
       ],
@@ -125,7 +125,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "seguridad-service",
           "Port": 5001
         }
       ],
@@ -141,7 +141,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "seguridad-service",
           "Port": 5001
         }
       ],
@@ -157,7 +157,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "venta-service",
           "Port": 5002
         }
       ],
@@ -173,7 +173,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "venta-service",
           "Port": 5002
         }
       ],
@@ -189,7 +189,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "venta-service",
           "Port": 5002
         }
       ],
@@ -205,7 +205,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "venta-service",
           "Port": 5002
         }
       ],
@@ -221,7 +221,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "venta-service",
           "Port": 5002
         }
       ],
@@ -237,7 +237,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "venta-service",
           "Port": 5002
         }
       ],
@@ -253,7 +253,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "venta-service",
           "Port": 5002
         }
       ],
@@ -269,7 +269,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "venta-service",
           "Port": 5002
         }
       ],
@@ -285,7 +285,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "venta-service",
           "Port": 5002
         }
       ],
@@ -301,7 +301,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "venta-service",
           "Port": 5002
         }
       ],
@@ -317,7 +317,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "pago-service",
           "Port": 5005
         }
       ],
@@ -333,7 +333,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
+          "Host": "pago-service",
           "Port": 5005
         }
       ],
@@ -346,9 +346,9 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://35.226.37.189:5000",
+    "BaseUrl": "http://gateway-service:5000",
     "Cors": {
-      "AllowedOrigins": [ "*" ], // Cambia la URL al origen de tu frontend
+      "AllowedOrigins": [ "http://localhost:4200" ], // Cambia la URL al origen de tu frontend
       "AllowedMethods": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ],
       "AllowedHeaders": [ "*" ]
     }
