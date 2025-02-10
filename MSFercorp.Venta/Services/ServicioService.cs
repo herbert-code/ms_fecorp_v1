@@ -15,14 +15,14 @@ namespace MSFercorp.Venta.Services
         public async Task<IEnumerable<Servicio>> GetAllServicios()
         {            
             return await _context.Servicios
-                .Include(v => v.servicio)
+                .Include(v => v.Area)
                 .ToListAsync();            
         } 
 
         public async Task<Servicio> GetServicio(int id)
         {
             return await _context.Servicios
-               .Include(v => v.servicio)
+               .Include(v => v.Area)
                .FirstOrDefaultAsync(v => v.Id == id);
         }           
 

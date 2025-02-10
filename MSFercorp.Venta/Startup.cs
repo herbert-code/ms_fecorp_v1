@@ -39,6 +39,8 @@ namespace MSFercorp.Venta
             services.AddScoped<IVentaService, VentaService>();
             services.AddScoped<ICategoriaService, CategoriaService>();
             services.AddScoped<IProductoService, ProductoService>();
+            services.AddScoped<IAreaService, AreaService>();
+            services.AddScoped<IServicioService, ServicioService>();
             services.AddScoped<IAlmecenService, AlmacenService>();
             services.AddScoped<IDetalleVentaService, DetalleVentaService>();
             services.AddScoped<ProductoAlmacenService>();

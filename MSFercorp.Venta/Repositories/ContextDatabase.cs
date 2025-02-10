@@ -23,7 +23,7 @@ namespace MSFercorp.Venta.Repositories
             modelBuilder.Entity<Cliente>().ToTable("cliente"); // 🚨 Nombre exacto de la tabla
             modelBuilder.Entity<Models.Venta>().ToTable("ventas");
             modelBuilder.Entity<Categoria>().ToTable("categoria");
-            modelBuilder.Entity<Area>().ToTable("area");
+            modelBuilder.Entity<Area>().ToTable("areas");
             modelBuilder.Entity<Producto>().ToTable("producto");
             modelBuilder.Entity<Servicio>().ToTable("servicio");
             modelBuilder.Entity<Almacen>().ToTable("almacen");
