@@ -10,7 +10,9 @@ namespace MSFercorp.Venta.Repositories
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Models.Venta> Ventas { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Area> Areas { get; set; }
         public DbSet<Producto> Productos { get; set; }
+        public DbSet<Servicio> Servicios { get; set; }
         public DbSet<Almacen> Almacenes { get; set; }        
         public DbSet<ProductoAlmacen> ProductosAlmacenes { get; set; }
         public DbSet<DetalleVenta> DetallesVenta { get; set; }
@@ -20,8 +22,10 @@ namespace MSFercorp.Venta.Repositories
             // Configurar nombres de tablas
             modelBuilder.Entity<Cliente>().ToTable("cliente"); // 🚨 Nombre exacto de la tabla
             modelBuilder.Entity<Models.Venta>().ToTable("ventas");
-            modelBuilder.Entity<Categoria>().ToTable("categoria");            
+            modelBuilder.Entity<Categoria>().ToTable("categoria");
+            modelBuilder.Entity<Area>().ToTable("area");
             modelBuilder.Entity<Producto>().ToTable("producto");
+            modelBuilder.Entity<Servicio>().ToTable("servicio");
             modelBuilder.Entity<Almacen>().ToTable("almacen");
             modelBuilder.Entity<ProductoAlmacen>().ToTable("producto_almacen");
             modelBuilder.Entity<DetalleVenta>().ToTable("detalle_venta");
