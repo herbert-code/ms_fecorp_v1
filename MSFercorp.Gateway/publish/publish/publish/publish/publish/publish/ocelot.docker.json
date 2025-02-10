@@ -1,17 +1,6 @@
 {
+  /*
   "Routes": [
-    {
-      "DownstreamPathTemplate": "/metrics",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "gateway-service",
-          "Port": 8080
-        }
-      ],
-      "UpstreamPathTemplate": "/metrics",
-      "UpstreamHttpMethod": [ "Get" ]
-    },
     {
       "DownstreamPathTemplate": "/api/auth",
       "DownstreamScheme": "http",
@@ -45,8 +34,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5001
+          "Host": "seguridad-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/usuario/{id}",
@@ -61,8 +50,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5001
+          "Host": "seguridad-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/roles",
@@ -77,8 +66,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5001
+          "Host": "seguridad-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/roles/{id}",
@@ -93,8 +82,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5001
+          "Host": "seguridad-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/permiso",
@@ -109,8 +98,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5001
+          "Host": "seguridad-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/rolpermisos",
@@ -125,8 +114,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5001
+          "Host": "seguridad-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/rolpermisos/{id}",
@@ -141,8 +130,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5001
+          "Host": "seguridad-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/rolpermisousuarios",
@@ -157,8 +146,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5002
+          "Host": "venta-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/producto",
@@ -173,8 +162,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5002
+          "Host": "venta-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/producto/{id}",
@@ -189,8 +178,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5002
+          "Host": "venta-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/almacen",
@@ -205,8 +194,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5002
+          "Host": "venta-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/venta",
@@ -217,28 +206,12 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/api/venta/{id}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "35.226.37.189",
-          "Port": 5002
-        }
-      ],
-      "UpstreamPathTemplate": "/api/venta/{id}",
-      "UpstreamHttpMethod": [ "Delete", "Get" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "SECURITY-TOKEN",
-        "AllowedScopes": []
-      }
-    },
-    {
       "DownstreamPathTemplate": "/api/detalleventa",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5002
+          "Host": "venta-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/detalleventa",
@@ -249,28 +222,12 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/api/detalleventa/{id}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "35.226.37.189",
-          "Port": 5002
-        }
-      ],
-      "UpstreamPathTemplate": "/api/detalleventa/{id}",
-      "UpstreamHttpMethod": [ "Delete", "Get" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "SECURITY-TOKEN",
-        "AllowedScopes": []
-      }
-    },
-    {
       "DownstreamPathTemplate": "/api/productoalmacen",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5002
+          "Host": "venta-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/productoalmacen",
@@ -285,8 +242,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5002
+          "Host": "venta-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/cliente",
@@ -301,8 +258,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5002
+          "Host": "venta-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/categoria",
@@ -317,8 +274,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5005
+          "Host": "pago-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/pago",
@@ -333,8 +290,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "35.226.37.189",
-          "Port": 5005
+          "Host": "pago-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/empresa",
@@ -346,11 +303,7 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://35.226.37.189:5000",
-    "Cors": {
-      "AllowedOrigins": [ "*" ], // Cambia la URL al origen de tu frontend
-      "AllowedMethods": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ],
-      "AllowedHeaders": [ "*" ]
-    }
+    "BaseUrl": "http://gateway-service:8080"
   }
+  */
 }
