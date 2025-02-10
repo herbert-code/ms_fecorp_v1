@@ -1,5 +1,5 @@
 {
-  
+  /*
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/auth",
@@ -305,5 +305,5 @@
   "GlobalConfiguration": {
     "BaseUrl": "http://gateway-service:8080"
   }
- 
+  */
 }
